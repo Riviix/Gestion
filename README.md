@@ -54,7 +54,7 @@ Este dashboard fue creado para transmitir la sensación de caos y locura (como u
 
 ## 👨‍💻 Créditos y agradecimientos
 - Inspirado en el arte de la locura, los dashboards retro y los comentarios de código de los videojuegos.
-- Hecho con ❤️, café y un poco de caos por [Tu Nombre o Grupo].
+- Hecho con ❤️, café y un poco de caos por [Yo].
 
 ## 🧙‍♂️ Easter Egg
 > Si llegaste hasta aquí, ejecuta `console.log('¡El caos está bajo control!')` en la consola del navegador 😉
@@ -62,5 +62,5 @@ Este dashboard fue creado para transmitir la sensación de caos y locura (como u
 ---
 
 <p align="center">
-  <img src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif" width="300" alt="glitch chaos"/>
+  <img src="https://giphy.com/gifs/markiplier-mlg-qUlHlA7VTUxd6" width="300" alt="glitch chaos"/>
 </p> 
