@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investigación Turismo MDP 2016</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!--
+      CAOS CONTROLADO: Esta página fue diseñada para transmitir locura, pero con orden.
+      Si encuentras este mensaje, ¡felicitaciones! Eres un explorador del código.
+      Easter egg: "Esto funciona porque sí. No lo toques."
+    -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <h1>🔬 INVESTIGACIÓN TURÍSTICA</h1>
+                <p class="subtitle">Mar del Plata 2016 - Análisis de Datos</p>
+            </div>
+            <div class="nav-tabs">
+                <button class="tab-btn active" data-tab="dashboard">📊 Dashboard</button>
+                <button class="tab-btn" data-tab="calculator">🧮 Calculadora</button>
+                <button class="tab-btn" data-tab="comparison">📈 Comparación</button>
+                <button class="tab-btn" data-tab="research">🔍 Investigación</button>
+            </div>
+        </header>
+
+        <!-- Dashboard Tab -->
+        <div id="dashboard" class="tab-content active">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Arribos</h3>
+                    <div class="stat-number">8,452,695</div>
+                    <div class="stat-label">Turistas 2016</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Pernoctaciones</h3>
+                    <div class="stat-number">27,373,732</div>
+                    <div class="stat-label">Total</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Giro Estimado</h3>
+                    <div class="stat-number">$19,691M</div>
+                    <div class="stat-label">Pesos</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Ocupación Promedio</h3>
+                    <div class="stat-number">39.2%</div>
+                    <div class="stat-label">Global</div>
+                </div>
+            </div>
+
+            <div class="charts-section">
+                <div class="chart-container">
+                    <h3>Arribos Mensuales</h3>
+                    <canvas id="arrivalsChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Gasto Diario con Transporte</h3>
+                    <canvas id="expensesChart"></canvas>
+                </div>
+            </div>
+
+            <div class="data-table">
+                <h3>Datos Mensuales Completos</h3>
+                <div class="table-container">
+                    <table id="monthlyData">
+                        <thead>
+                            <tr>
+                                <th>Mes</th>
+                                <th>Arribos</th>
+                                <th>Turistas Estables</th>
+                                <th>Pernoctaciones</th>
+                                <th>Estadía</th>
+                                <th>Gasto Diario</th>
+                                <th>Ocupación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calculator Tab -->
+        <div id="calculator" class="tab-content">
+            <div class="calculator-section">
+                <h2>🧮 Calculadora Estadística</h2>
+                
+                <div class="calc-grid">
+                    <div class="calc-card">
+                        <h3>Análisis de Diferencias</h3>
+                        <div class="input-group">
+                            <label>Mes 1:</label>
+                            <select id="month1">
+                                <option value="enero">Enero</option>
+                                <option value="febrero">Febrero</option>
+                                <option value="marzo">Marzo</option>
+                                <option value="abril">Abril</option>
+                                <option value="mayo">Mayo</option>
+                                <option value="junio">Junio</option>
+                                <option value="julio">Julio</option>
+                                <option value="agosto">Agosto</option>
+                                <option value="septiembre">Septiembre</option>
+                                <option value="octubre">Octubre</option>
+                                <option value="noviembre">Noviembre</option>
+                                <option value="diciembre">Diciembre</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Mes 2:</label>
+                            <select id="month2">
+                                <option value="septiembre">Septiembre</option>
+                                <option value="octubre">Octubre</option>
+                                <option value="noviembre">Noviembre</option>
+                                <option value="enero">Enero</option>
+                                <option value="febrero">Febrero</option>
+                                <option value="marzo">Marzo</option>
+                                <option value="abril">Abril</option>
+                                <option value="mayo">Mayo</option>
+                                <option value="junio">Junio</option>
+                                <option value="julio">Julio</option>
+                                <option value="agosto">Agosto</option>
+                                <option value="diciembre">Diciembre</option>
+                            </select>
+                        </div>
+                        <button onclick="calculateDifference()" class="calc-btn">Calcular Diferencia</button>
+                        <div id="differenceResult" class="result-box"></div>
+                    </div>
+
+                    <div class="calc-card">
+                        <h3>Análisis de Transporte</h3>
+                        <div class="input-group">
+                            <label>Mes a analizar:</label>
+                            <select id="transportMonth">
+                                <option value="septiembre">Septiembre</option>
+                                <option value="octubre">Octubre</option>
+                                <option value="noviembre">Noviembre</option>
+                                <option value="enero">Enero</option>
+                                <option value="febrero">Febrero</option>
+                            </select>
+                        </div>
+                        <button onclick="analyzeTransport()" class="calc-btn">Analizar Transporte</button>
+                        <div id="transportResult" class="result-box"></div>
+                    </div>
+
+                    <div class="calc-card">
+                        <h3>Impacto de Eventos</h3>
+                        <div class="input-group">
+                            <label>Evento:</label>
+                            <select id="eventType">
+                                <option value="carnavales">Carnavales</option>
+                                <option value="semanaSanta">Semana Santa</option>
+                                <option value="juegosEvita">Juegos Evita</option>
+                                <option value="juegosBonaerenses">Juegos Bonaerenses</option>
+                                <option value="finDeSemanaLargo">Fin de Semana Largo</option>
+                            </select>
+                        </div>
+                        <button onclick="analyzeEvent()" class="calc-btn">Analizar Evento</button>
+                        <div id="eventResult" class="result-box"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Tab -->
+        <div id="comparison" class="tab-content">
+            <div class="comparison-section">
+                <h2>📈 Comparador de Resultados</h2>
+                
+                <div class="comparison-controls">
+                    <div class="control-group">
+                        <label>Variable a comparar:</label>
+                        <select id="comparisonVariable">
+                            <option value="gastoDiario">Gasto Diario</option>
+                            <option value="arribos">Arribos</option>
+                            <option value="pernoctaciones">Pernoctaciones</option>
+                            <option value="estadia">Estadía</option>
+                            <option value="ocupacion">Ocupación Hotelera</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Período:</label>
+                        <select id="comparisonPeriod">
+                            <option value="estival">Período Estival (Ene-Feb)</option>
+                            <option value="segundoSemestre">Segundo Semestre (Sep-Nov)</option>
+                            <option value="todoAno">Todo el Año</option>
+                        </select>
+                    </div>
+                    <button onclick="generateComparison()" class="comp-btn">Generar Comparación</button>
+                </div>
+
+                <div class="comparison-results">
+                    <div class="chart-container">
+                        <canvas id="comparisonChart"></canvas>
+                    </div>
+                    <div class="comparison-stats">
+                        <div id="comparisonStats"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Research Tab -->
+        <div id="research" class="tab-content">
+            <div class="research-section">
+                <h2>🔍 Herramientas de Investigación</h2>
+                
+                <div class="research-grid">
+                    <div class="research-card">
+                        <h3>Hipótesis Principal</h3>
+                        <div class="hypothesis-content">
+                            <p><strong>Título:</strong> Diferencias significativas en los gastos empleados por turista para los medios de viaje.</p>
+                            <p><strong>Motivo:</strong> Durante el periodo estival, se muestran dos índices de gastos. Con y Sin la inclusión del gasto empleado en el transporte. El gasto empleado en el transporte para el turista fue significativamente mayor a partir de la segunda mitad del año.</p>
+                            <p><strong>Meses más caros:</strong> Septiembre ($1,143.37), Octubre ($1,108.73), Noviembre ($1,106.49)</p>
+                            <p><strong>Meses más baratos:</strong> Enero ($523.75), Febrero ($583.82)</p>
+                        </div>
+                    </div>
+
+                    <div class="research-card">
+                        <h3>Análisis de Contexto Económico</h3>
+                        <div class="context-content">
+                            <p><strong>Inflación 2016:</strong> 40.9% anual</p>
+                            <p><strong>Aumentos más fuertes:</strong> Segundo trimestre (tarifas, combustibles, transporte)</p>
+                            <p><strong>Resolución 39-E/2016:</strong> Aumento del 26% en tarifas de ómnibus de larga distancia</p>
+                            <p><strong>Base tarifaria:</strong> $0.9177 → $1.1596 por kilómetro</p>
+                        </div>
+                    </div>
+
+                    <div class="research-card">
+                        <h3>Eventos Clave</h3>
+                        <div class="events-content">
+                            <ul>
+                                <li><strong>Septiembre:</strong> Segundo mes con mayor uso de avión (1.38%)</li>
+                                <li><strong>Octubre:</strong> Juegos Evita + Juegos Bonaerenses + Fin de semana largo</li>
+                                <li><strong>Arribos Octubre:</strong> 661,974</li>
+                                <li><strong>Pernoctaciones Octubre:</strong> 1,333,964</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="research-card">
+                        <h3>Calculadora de Impacto</h3>
+                        <div class="impact-calculator">
+                            <div class="input-group">
+                                <label>Calcular impacto inflacionario:</label>
+                                <input type="number" id="baseAmount" placeholder="Monto base" step="0.01">
+                                <input type="number" id="inflationRate" placeholder="Tasa inflación %" value="40.9" step="0.1">
+                            </div>
+                            <button onclick="calculateInflationImpact()" class="impact-btn">Calcular Impacto</button>
+                            <div id="inflationResult" class="result-box"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
