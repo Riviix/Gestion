@@ -62,5 +62,5 @@ Este dashboard fue creado para transmitir la sensación de caos y locura (como u
 ---
 
 <p align="center">
-  <img src="https://giphy.com/gifs/markiplier-mlg-qUlHlA7VTUxd6.gif" width="300" alt="glitch chaos"/>
+  <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMm0wYTE2bmxxeTZtd21kZGdwbzU5eHM1c2tsangyOWJ6N2ZpOGdjOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qUlHlA7VTUxd6/giphy.gif" width="300" alt="glitch chaos"/>
 </p> 
