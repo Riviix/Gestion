@@ -615,7 +615,7 @@ function calculateInflationImpact() {
     `;
 }
 
-// Función para formatear números grandes
+// Función para formatear números grandes funca que esl o importante
 function formatNumber(num) {
     if (num >= 1000000) {
         return (num / 1000000).toFixed(1) + 'M';
@@ -625,7 +625,7 @@ function formatNumber(num) {
     return num.toString();
 }
 
-// Función para calcular estadísticas generales
+// Función para calcular estadísticas generales cuesta entender pero bueno
 function calculateGeneralStats() {
     const arribos = Object.values(tourismData).reduce((sum, data) => sum + data.arribos, 0);
     const pernoctaciones = Object.values(tourismData).reduce((sum, data) => sum + data.pernoctaciones, 0);
@@ -636,4 +636,5 @@ function calculateGeneralStats() {
         pernoctaciones,
         ocupacionPromedio: ocupacionPromedio.toFixed(1)
     };
+
 } 
